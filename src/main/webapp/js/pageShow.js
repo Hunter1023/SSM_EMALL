@@ -25,15 +25,14 @@
 	
 	var loading = new Loading();
 	var layer = new Layer();
-
 	
 	$('add').onclick = function(e){
 		var ele = e.target;
 		var id = ele && ele.dataset.id;
 		var title = ele && ele.dataset.title;
 		var price = ele && ele.dataset.price;
-		var num = $('allNum').innerHTML;
-		var productDetail = {'id':id,'price':price,'title':title,'num':num};
+		var buyNum = $('allNum').innerHTML;
+		var productDetail = {'id':id,'price':price,'title':title,'buyNum':buyNum};
 		var name = 'products';
 		var productList1 = new Array;
 		var productList = util.getCookie(name);
@@ -41,7 +40,7 @@
 			productList1.push(productDetail);
 			util.setCookie(name,productList1);
 		}else if(util.findOne(productList,id)){
-			util.modifyTwo(productList,id,num);
+			util.modifyTwo(productList,id,buyNum);
 			util.setCookie(name,productList);
 		}else{
 			productList.push(productDetail);

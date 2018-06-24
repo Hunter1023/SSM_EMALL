@@ -12,7 +12,7 @@
 	var str = "<tr>" + 
 			  "<th>" + '内容名称'  + "</th>"+ 
 			  "<th>" + '数量' + "</th>" +
-			  "<th>" + '价格' + "</th>" +
+			  "<th>" + '单价' + "</th>" +
 			  "</tr>";
 
 	for(var i = 0; i < products.length; i++){
@@ -21,7 +21,7 @@
 		"<td>" + products[i].title  + "</td>"+
 		"<td>" + 
 		"<span class=\"lessNum\">"+ "-" + "</span>" +
-		"<span class=\"totalNum\" id=\"allNum\">" + products[i].num + "</span>" +
+		"<span class=\"totalNum\" id=\"allNum\">" + products[i].buyNum + "</span>" +
 		"<span id=\"thisId\">" + products[i].id + "</span>" +
 		"<span class=\"moreNum\">"+ "+" + "</span>" + "</td>" +
 		"<td>" + products[i].price + "</td>" +
@@ -59,7 +59,7 @@
 	var layer = new Layer();
 	$('Account').onclick = function(e){
 		var newProducts = products.map(function(arr){
-			return {'id':arr.id,'number':arr.num};
+			return {'id':arr.id,'buyNum':arr.buyNum};
 		});
 		console.log(newProducts);
 		var ele = e.target;
@@ -77,7 +77,7 @@
 				                if(status >= 200 && status < 300 || status == 304){
 				                	var json = JSON.parse(xhr.responseText);
 				                	if(json && json.code == 200){
-				                		loading.result('购买成功',function(){location.href = './account.html';});
+				                		loading.result('购买成功',function(){location.href = './account';});
 				                		util.deleteCookie(name);
 				                	}else{
 				                		alert(json.message);

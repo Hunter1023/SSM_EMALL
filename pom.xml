@@ -61,12 +61,33 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.46</version>
         </dependency>
-
+        <!--数据校验-->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.3.6.Final</version>
+        </dependency>
         <!--返回JSON数据-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${json-version}</version>
+        </dependency>
+        <!--Freemaker-->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.23</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring-version}</version>
         </dependency>
 
         <dependency>
@@ -76,7 +97,6 @@
             <!--服务器中已存在，开发时候如果没有会报错-->
             <scope>provided</scope>
         </dependency>
-
     </dependencies>
 
     <build>

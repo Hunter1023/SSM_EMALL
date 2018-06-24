@@ -32,13 +32,13 @@
 				return item.id == id;
 			})[0];
 		},
-		modifyOne:function(array,id,num){
+		modifyOne:function(array,id,buyNum){
 			var item = this.findOne(array,id);
-			item.num = num;
+			item.buyNum = buyNum;
 		},
-		modifyTwo:function(array,id,num){
+		modifyTwo:function(array,id,buyNum){
 			var item = this.findOne(array,id);
-			item.num = parseInt(item.num) + parseInt(num);
+			item.buyNum = parseInt(item.buyNum) + parseInt(buyNum);
 		},
 		getCookie:function(name){
 			var result = document.cookie.match(new RegExp(name + '=([^;]+)'));

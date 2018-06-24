@@ -13,16 +13,16 @@
 	var imgpre = util.get('imgpre');
 	var loading = new Loading();
 	var imageUrl;
+	//图片的模式默认为 图片地址
 	var imageMode = "urlUpload";
-	
-
 
 	var page = {
 		init:function(){
 			var $ = function(id){
 				return document.getElementById(id);
 			};
-			
+
+			//选择 图片地址/本地上传
 			$('uploadType').onclick = function(e){
 				e = window.event || e;
 				o = e.srcElement || e.target;
@@ -36,7 +36,8 @@
 					$(h).style.display='none';
 				}
 			};
-			
+
+			//上传 的鼠标点击监听
 			$('upload').addEventListener('click', function (){
 				
 				uploadInput.addEventListener('change', function() {

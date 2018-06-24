@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hunter.ssm_emall.dao.UserMapper">
+
+    <select id="getUser" resultMap="UserMap">
+        SELECT * FROM person
+        WHERE username=#{username, javaType=String}
+            AND password=#{password, javaType=String}
+    </select>
+    <resultMap id="UserMap" type="com.hunter.ssm_emall.bean.User">
+        <id column="id" javaType="Integer" property="id"/>
+        <result column="username" javaType="String" property="username"/>
+        <result column="password" javaType="String" property="password"/>
+        <result column="nickname" javaType="String" property="nickname"/>
+        <result column="userType" javaType="Integer" property="userType"/>
+    </resultMap>
+</mapper>

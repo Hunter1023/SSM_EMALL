@@ -1,7 +1,7 @@
 html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,select,textarea,menu{margin:0;padding:0;}
 header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
 table{border-collapse:collapse;border-spacing:0;}
-caption,th{text-align:left;font-weight:bold;}
+caption,th{/*text-align:left;*/font-weight:bold;}
 html,body,fieldset,img,iframe,abbr{border:0;}
 i,cite,em,var,address,dfn{font-style:normal;}
 [hidefocus],summary{outline:0;}
@@ -26,7 +26,7 @@ a:hover{color:#000;}
 
 body{padding-bottom:50px;}
 .g-doc{width:970px;margin: 0 auto;}
-.g-doc th.td{text-align:center};
+.g-doc th.td{text-align:center;}
 #newTable th,td{text-align:center;}
 #thisId{display:none;}
 #act-btn{margin-top:100px;margin-left:300px;}
@@ -81,7 +81,7 @@ select.u-ipt{width:auto;padding:0;line-height:1;}
 .v-load .load b{display:none;}
 .v-load .load i{position:absolute;top:5px;left:10px;width:30px;height:30px;overflow:hidden;transform-origin:10px 15px;animation:loading 1s linear both infinite;}
 .v-load .load i:after{position:absolute;top:0;left:0;box-sizing:border-box;width:100%;height:100%;margin-left:-5px;content:'';border:2px solid #fff;border-radius:50%;}
-.v-load-result .load{text-align: center;width:100px;margin-left:-50px;white-space: nowrap;}
+.v-load-result .load{text-align: center;width:200px;margin-left:-50px;white-space: nowrap;}
 .v-load-result .load b{display:block;}
 .v-load-result .load i{display:none;}
 @keyframes loading{

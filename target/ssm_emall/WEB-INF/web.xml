@@ -43,6 +43,14 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
         <async-supported>true</async-supported>
+        <multipart-config>
+            <!-- 上传文件存放的临时文件目录,有默认目录(按照默认比较方便) -->
+            <!--<location>image/tmp</location>-->
+            <!-- 文件的最大大小，单位为字节。默认没有限制 -->
+            <max-file-size>1048576</max-file-size>
+            <!-- 当上传文件大小大于这个阈值时将写入到临时目录下(避免内存空间不够)，否则在内存中 -->
+            <file-size-threshold>0</file-size-threshold>
+        </multipart-config>
     </servlet>
     <servlet-mapping>
         <servlet-name>SpringMVC</servlet-name>
@@ -50,7 +58,7 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>/index.jsp</welcome-file>
+        <welcome-file>/index</welcome-file>
     </welcome-file-list>
 
 </web-app>  

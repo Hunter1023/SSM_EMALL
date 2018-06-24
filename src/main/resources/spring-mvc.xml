@@ -10,6 +10,24 @@
     </context:component-scan>
 
     <!--=======================配置视图解析器，方便页面返回==================================-->
+    <bean id="freemarkerConfig"
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/template/"/>
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">0</prop>
+                <prop key="default_encoding">UTF-8</prop>
+                <!--<prop key="locale">zh_CN</prop>-->
+                <!-- 解决前端报错 -->
+                <prop key="classic_compatible">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--二进制文件处理-->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
+
     <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
         <property name="viewResolvers">
             <list>

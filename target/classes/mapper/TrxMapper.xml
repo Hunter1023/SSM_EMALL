@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hunter.ssm_emall.dao.TrxMapper">
+
+    <resultMap id="BuyMap" type="com.hunter.ssm_emall.bean.Product">
+        <id column="id" javaType="Integer" property="id"/>
+        <result column="title" javaType="String" property="title"/>
+        <result column="icon" javaType="String" property="image"/>
+        <result column="num" javaType="Integer" property="buyNum"/>
+        <result column="time" javaType="long" property="buyTime"/>
+        <result column="price" javaType="String" property="buyPrice"/>
+    </resultMap>
+
+    <select id="getBuyList" resultMap="BuyMap">
+        SELECT c.id, c.title, c.icon, t.num, t.time, t.price
+        FROM content c INNER JOIN trx t
+        ON c.id=t.contentId WHERE t.personId=#{id, jdbcType=INTEGER}
+    </select>
+</mapper>

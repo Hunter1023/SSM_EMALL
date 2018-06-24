@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hunter.ssm_emall.dao.ProductMapper">
+
+    <resultMap id="ProductMap" type="com.hunter.ssm_emall.bean.Product">
+        <id column="id" javaType="Integer" property="id"/>
+        <result column="price" javaType="String" property="price"/>
+        <result column="title" javaType="String" property="title"/>
+        <result column="num" javaType="Integer" property="num"/>
+        <result column="icon" javaType="String" property="image"
+                typeHandler="com.hunter.ssm_emall.utils.ConvertBlobTypeHandler"/>
+        <result column="abstract" javaType="String" property="summary"/>
+        <result column="text" javaType="String" property="detail"
+                typeHandler="com.hunter.ssm_emall.utils.ConvertBlobTypeHandler"/>
+        <result column="trxCount" javaType="Integer" property="trxCount"/>
+    </resultMap>
+
+    <select id="getProductList" resultMap="ProductMap">
+        SELECT c.*, (SELECT COUNT(*) FROM trx t WHERE t.contentId=c.id) AS trxCount
+        FROM content c
+    </select>
+
+    <select id="getProduct" resultMap="ProductMap">
+        SELECT c.*, (SELECT COUNT(*) FROM trx t WHERE t.contentId=c.id) AS trxCount
+        FROM content c WHERE c.id=#{id, jdbcType=INTEGER}
+    </select>
+
+    <!--<insert id="publicProduct" parameterType="com.hunter.ssm_emall.bean.Product"-->
+    <!--useGeneratedKeys="true">-->
+    <!--INSERT INTO content(price, title, num, icon, abstract, text)-->
+    <!--VALUE (#{price}, #{title}, #{num}, #{image}, #{summary}, #{detail})-->
+    <!--</insert>-->
+
+    <select id="getCount" resultType="int">
+        SELECT COUNT(*) FROM content
+    </select>
+</mapper>
