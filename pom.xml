@@ -12,7 +12,7 @@
     <properties>
         <Encoding>UTF-8</Encoding>
         <spring-version>5.0.6.RELEASE</spring-version>
-        <json-version>2.9.5</json-version>
+        <json-version>2.9.10.3</json-version>
     </properties>
 
     <dependencies>
